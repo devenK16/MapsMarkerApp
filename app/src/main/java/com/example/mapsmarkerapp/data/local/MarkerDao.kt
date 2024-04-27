@@ -7,6 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.example.mapsmarkerapp.data.models.MarkerEntity
+import dagger.Provides
 import kotlinx.coroutines.flow.Flow
 
 @Dao

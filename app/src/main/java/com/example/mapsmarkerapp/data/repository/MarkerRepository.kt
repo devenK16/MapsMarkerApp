@@ -39,7 +39,7 @@ class MarkerRepository @Inject constructor(
             address = address,
             latitude = latitude,
             longitude = longitude,
-            isSaved = true
+            isSaved = isSaved
         )
     }
 
@@ -51,7 +51,8 @@ class MarkerRepository @Inject constructor(
             age = age,
             address = address,
             latitude = latitude,
-            longitude = longitude
+            longitude = longitude,
+            isSaved = isSaved
         )
     }
 }

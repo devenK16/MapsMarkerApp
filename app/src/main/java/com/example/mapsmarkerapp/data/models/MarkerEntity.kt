@@ -11,5 +11,6 @@ data class MarkerEntity(
     val age: Int,
     val address: String,
     val latitude: Double,
-    val longitude: Double
+    val longitude: Double,
+    val isSaved: Boolean
 )

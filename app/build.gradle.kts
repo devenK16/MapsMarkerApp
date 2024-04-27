@@ -65,6 +65,7 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.appcompat)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -98,7 +99,7 @@ dependencies {
 
     // Optionally, you can include the Compose utils library for Clustering,
     // Street View metadata checks, etc.
-    implementation("com.google.maps.android:maps-compose-utils:4.4.1")
+    implementation("com.google.maps.android:maps-compose-utils:4.4.0")
 
     // Optionally, you can include the widgets library for ScaleBar, etc.
 //    implementation("com.google.maps.android:maps-compose-widgets:4.4.1")
