@@ -95,7 +95,7 @@ dependencies {
 
 
     implementation("com.google.maps.android:maps-compose:4.4.0")
-//    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation("com.google.android.gms:play-services-location:21.2.0")
 
     // Optionally, you can include the Compose utils library for Clustering,
     // Street View metadata checks, etc.
@@ -108,9 +108,3 @@ dependencies {
 
 }
 
-//secrets {
-//    // To add your Maps API key to this project:
-//    // 1. Add this line to your local.properties file, where YOUR_API_KEY is your API key:
-//    //        MAPS_API_KEY=YOUR_API_KEY
-//    defaultPropertiesFileName "local.defaults.properties"
-//}

@@ -1,8 +1,7 @@
-package com.example.mapsmarkerapp.components
+package com.example.mapsmarkerapp.ui.components
 
 import android.Manifest
 import android.location.Geocoder
-import androidx.activity.OnBackPressedCallback
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,13 +20,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.mapsmarkerapp.data.models.MarkerData
-import com.example.mapsmarkerapp.viewmodels.MapsViewModel
+import com.example.mapsmarkerapp.ui.viewmodels.MapsViewModel
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberMultiplePermissionsState
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
@@ -61,6 +59,7 @@ fun MapsScreen1(
     }
     val cameraPositionState = rememberCameraPositionState()
     val selectedMarker = remember { mutableStateOf<MarkerData?>(null) }
+
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -121,22 +120,6 @@ private fun showUpdateMarkerDialog(
     onDismissRequest: () -> Unit
 ) {
 
-    val context = LocalContext.current
-
-    // Get the activity from the context
-    val activity = LocalContext.current as? AppCompatActivity
-    activity?.let {
-        // Add callback to the back press dispatcher of the activity
-        it.onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                // Handle back press event, e.g., dismiss the dialog
-                selectedMarker.value = null
-                onDismissRequest() // Call the onDismissRequest function here
-            }
-        })
-    }
-
-
     var name by remember { mutableStateOf(marker.name) }
     var relation by remember { mutableStateOf(marker.relation) }
     var age by remember { mutableStateOf(marker.age) }
@@ -147,7 +130,7 @@ private fun showUpdateMarkerDialog(
 
     AlertDialog(
         modifier = Modifier.padding(10.dp),
-        onDismissRequest = onDismissRequest,
+        onDismissRequest = { onDismissRequest() },
         title = { Text(text = "Enter Personal Detail") },
         text = {
             Column {

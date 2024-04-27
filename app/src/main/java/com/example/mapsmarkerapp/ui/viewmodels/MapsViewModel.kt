@@ -1,4 +1,4 @@
-package com.example.mapsmarkerapp.viewmodels
+package com.example.mapsmarkerapp.ui.viewmodels
 
 import android.location.Geocoder
 import androidx.lifecycle.ViewModel
